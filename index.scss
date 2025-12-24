@@ -1,0 +1,235 @@
+/* Variables */
+$primary-color: #ffaac8;
+$secondary-color: #fff0f5;
+$hover-color: #ff85b0;
+$text-color: #303030;
+$white: #ffffff;
+$font-stack: 'Verdana', sans-serif;
+$base-padding: 10px;
+$base-font-size: 16px;
+
+/* Mixin for Buttons */
+@mixin button-style {
+  background-color: $primary-color;
+  color: $white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 5px;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+/* Global Styles */
+body {
+  font-family: $font-stack;
+  background-color: $white;
+  margin: 0 auto;
+  padding: $base-padding;
+  max-width: 800px;
+}
+
+p {
+  color: $text-color;
+  text-align: justify;
+  background-color: $white;
+  padding: $base-padding;
+  margin-top: 0;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Operators */
+h1 {
+  color: $primary-color;
+  font-size: $base-font-size * 2; // = 32px
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: $primary-color;
+  font-size: $base-font-size * 1.5; // = 24px
+  text-align: left;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: $primary-color;
+  font-size: $base-font-size * 1.125; // = 18px
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* List Styles */
+li {
+  background-color: $white;
+  padding: 5px 10px;
+}
+
+/* Link Styles */
+a {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Inheritance */
+
+.image-base {
+  text-align: center;
+  margin-bottom: 40px;
+  
+  img {
+    display: block;
+    object-fit: cover;
+  }
+}
+
+// Applying inheritance
+.headerimage {
+  @extend .image-base;
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+}
+
+.featureimage {
+  @extend .image-base;
+
+  img {
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+}
+
+.image {
+  @extend .image-base;
+  
+  img {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+}
+
+.smallimage {
+  text-align: left;
+  margin-bottom: 20px;
+
+  img {
+    width: auto;
+    height: 150px;
+    display: block;
+    margin: 0;
+    border-radius: 0;
+    object-fit: cover;
+  }
+}
+
+/* Form Styles */
+.survey-form {
+  background-color: $secondary-color;
+  border: 2px solid $primary-color;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 40px auto;
+  max-width: 500px;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  label {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button {
+    @include button-style; 
+    margin-top: 15px;
+  }
+}
+
+/* Interaction Area Styles */
+.interaction-area {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: $secondary-color;
+  border-radius: 8px;
+
+  button {
+    @include button-style;
+    margin: 5px;
+  }
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 14px;
+
+  th, td {
+    border: 1px solid $primary-color;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: $primary-color;
+    color: $white;
+    font-weight: bold;
+  }
+}
+
+/* Dropdown Menu Styles */
+.dropdown-nav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+
+  .dropbtn {
+    @include button-style;
+  }
+
+  .dropdown-content {
+    display: none; 
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    border: 1px solid $primary-color;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+    a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0; 
+
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}
